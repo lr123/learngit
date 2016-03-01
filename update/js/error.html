@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>error对象</title>
+  <script type = "text/javascript" language = "javascript">
+	function textEval(exp){
+	  try{
+		result = eval(exp);
+	  }catch(error){
+		throw new Error("对不起，你的输入表达式不合法！");
+	  }
+	  document.write("表达式的值：" + result + "<br>");
+	}
+	
+	var isOk = false;
+	while(!isOk){
+		var x = prompt("请输入一个表达式：","");
+		try{
+			testEval(x);
+			isOk = true;
+		}catch(error){
+			document.write(error.message + "<br>");
+		}
+	}
+  </script>
+ </head> 
+ <body>
+   
+ </body>
+ </html>

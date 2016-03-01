@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>This is a next program!</title>
+  <script type = "text/javascript" language = "javascript">
+      function indexAndcharAt(){
+	     var string = prompt("请输入字符串："," ");
+		 with(document){
+		   write(string.charAt(3) + "<br>");
+		   write(string.charCodeAt(3)+ "<br>");
+		   write(string.indexOf('h',0)+ "<br>");
+		   write(string.lastIndexOf('h')+ "<br>");
+		 }
+		 
+		 var a = string.charAt(3);
+		 var b = string.charCodeAt(3);
+		 var c = string.concat( "  " + a, "  " + b);
+		 document.write(c);
+	  }
+    indexAndcharAt();
+  </script>
+ </head> 
+ <body>
+   
+ </body>
+ </html>

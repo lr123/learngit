@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>This is a next program!</title>
+  <script type = "text/javascript" >
+     <!-- 创建函数对象-->
+      function formException(error){
+	     this.message = error;
+		 this.name = "form";
+	  }
+	  
+	  function do(){
+			alert("jingxdaozhe");
+	     try{
+		   if(document.formtest.name1.value == ' ')
+		   {
+		      noNameException = new formException("Name is empty!");
+			      throw noNameException;
+		   }
+		   else
+		   {
+		      document.formtest.submit();
+		   }
+		 }
+		 catch(e)
+		 {
+		      document.write("An Exception error occured.");
+		      document.write(e.message);
+		 }
+		 finally
+		 {
+		    document.formtest.submit();  
+		 }
+		 return 0;
+	  }
+  </script>
+</head>
+<body>
+   <form id = "formtest" name = "formtest">
+       姓名：<input type = "text" id = "name1" name = "name1"><br>
+	   地址：<input type = "text" id = "address" name = "address"><br>
+	   <input type = "submit" value = "提交" onclick = "do();">
+   </form>
+</body>
+</html>
