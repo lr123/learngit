@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>四则运算</title>
+  <script language="javascript">
+   document.write("<h1 align=center><font color=red>网页计算器</font></h1>");
+   function account(ys){
+	   var x=document.calculate.num1.value;
+	   var y=document.calculate.num2.value;
+       var s=document.calculate.sign.value;
+	   if((x!="")&&(y!=""))
+	   {
+		   if((isNaN(x)==true)||(isNaN(y)==true))
+		   {
+			alert("please enter a number!")
+			return;
+		   }
+		   
+		   switch(ys)
+		   {
+			   case "+":
+			   var res=parseFloat(x)+parseFloat(y);
+			   document.calculate.result.value=res;
+			   break;
+			   
+			   case "-":
+			   var res=parseFloat(x)-parseFloat(y);
+			   document.calculate.result.value=res;
+			   break;
+			   
+			   case "*":
+			   var res=parseFloat(x)*parseFloat(y);
+			   document.calculate.result.value=res;
+			   break;
+			   
+			   case "/":
+			   if(parseFloat(y)==0)
+			   {
+				alert("分母不可以为零！")
+				return;
+			   }else
+			   {
+			    var res=parseFloat(x)/parseFloat(y);
+			   document.calculate.result.value=res;
+			   }
+			    break;
+				
+			   default :
+			   alert("你输入的运算符不正确，请重新输入!")
+			   return;
+		   }
+	   }else
+	   {
+	    alert("please enter a number !")
+		return;
+	   }
+   }
+  </script>
+</head>
+
+<body>
+  <form name="calculate">
+    <p align="center">操作数1<input type="text" border=0 name="num1"></p>
+	<p align="center">操作数2<input type="text" border=0 name="num2"></p>
+	<p align="center">计算结果<input type="label" border=0 name="result"></p>
+	<p align="center"><input type="hidden" name="sign"></P>
+	<p align="center">
+	   <input type="button" name="add" value="+" onclick="account('+')">
+	   <input type="button" name="sub" value="-" onclick="account('-')">
+	   <input type="button" name="mul" value="*" onclick="account('*')">
+	   <input type="button" name="div" value="/" onclick="account('/')">
+	</p>
+  </form>
+</body>
+</html>

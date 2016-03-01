@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>This is a next program!</title>
+  <script type = "text/javascript" >
+    function encodeURIAnddecodeURI(){
+	    var n = "这是我的！"
+		nEncode = encodeURI(n);
+		document.write("encodeURI编码后的值为：" +  nEncode + "<br>");
+		m = decodeURI(nEncode);
+		document.write("decodeURI解码后的值为:" + m + "<br>");
+		
+		
+		document.write("---------------------------------------------------------" + "<br>");
+		
+		var a = "http://www.swu.edu.cn?name=陆饶"
+		EncodeURIComponent = encodeURIComponent(a);
+		document.write("encodeURICopment编码后的值为：" +  EncodeURIComponent + "<br>");
+		b = decodeURIComponent(EncodeURIComponent);
+		document.write("decodeURICopment编码后的值为：" +  b + "<br>");
+	}
+	encodeURIAnddecodeURI();
+  </script>
+ </head> 
+ <body>
+ 
+ </body>
+ </html>
