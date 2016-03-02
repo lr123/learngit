@@ -1,6 +1,3 @@
  this is a new branch !
-<<<<<<< HEAD
- Creating a new branch is quick & simple.
-=======
+ Creating a new branch is quick & simp
  update readme.txt file !
->>>>>>> feature1
