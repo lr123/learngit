@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Function</title>
+  <script type = "text/javascript" language = "javascript">
+      function person(name){
+		this.name = name;
+		this.sayHello = function(city){
+			document.write("Hello,my name is <b>" + this.name + "</b>.I live in <b>" + city + "</b>.<br>");
+		}
+	  }
+	  var person1 = new person("Tom");
+	  var person2 = new person("lurao");
+	  person1.sayHello("U.S");
+	  person2.sayHello("China");
+	  person1.sayHello.call(person2,"U.S.");
+	  person2.sayHello.call(person1,"China");
+	  person1.sayHello.apply(person2,["U.S."]);
+	  person2.sayHello.apply(person1,["China"]);
+  
+  </script>
+ </head> 
+ <body>
+   
+ </body>
+ </html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>RegExp</title>
+ <script type = "text/javascript" language = "javascript">
+		var str = prompt("请输入需要匹配的字符串：","");
+		if(str.length > 0){
+		    
+			document.write(matchStr(str));
+		}
+		
+		function matchStr(str){
+			var s;
+			var re = new RegExp("d(b+)(d)","ig");
+			var arr = re.exec(str);
+			s="共找到" +  arr.length + "个匹配结果<br/>";
+			s+="$1的值为：" + RegExp.$1 + "<br/>";
+			s+="$2的值为：" + RegExp.$2 + "<br/>";
+			s+="$3的值为：" + RegExp.$3 + "<br/>";
+			s+="input的值为：" + RegExp.input + "<br/>";
+			s+="index的值为：" + RegExp.index + "<br/>";
+			s+="lastMatch的值为：" + RegExp.lastMatch + "<br/>";
+			s+="lastIndex的值为：" + RegExp.lastIndex + "<br/>";
+			s+="leftContext的值为：" + RegExp.leftContext + "<br/>";
+			s+="rightContext的值为：" + RegExp.rightContext + "<br/>";
+			s+="lastParen的值为：" + RegExp.lastParen + "<br/>";
+			return(s);
+		} 
+		
+	</script>
+  
+ </head> 
+ <body>
+    
+ </body>
+ </html>
