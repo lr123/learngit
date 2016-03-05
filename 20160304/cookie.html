@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>document下对Cookie的使用</title>
+ <script type = "text/javascript" language = "javascript">
+	<!--保存cookie的方法-->
+		function saveCookie(){
+			var name = document.form1.cookiename.value;
+			var value = document.form1.cookievalue.value;
+			var expiresDay = document.form1.expiresdate.value;
+			//var ms = parseInt(expire sDay)*24*60*60*1000;  //过期的时间
+			var ms = parseInt(expiresDay)*10000; //设定cookie过期时间为 （expires*10）秒钟
+			
+			var today = new Date();
+			var date = new Date();
+			date.setTime(today.getTime() + ms); 
+			
+			document.cookie = name + "=" + value + ";expires = " + date.toGMTString();
+			alert("写入成功！");
+		}
+		<!--读取cookie的方法-->
+		function readCookie(){
+			var name = document.form1.readname.value;
+			var search = name +　"=";
+			begin = document.cookie.indexOf(search); //取得匹配search（name=）的第一次的位置
+			if(begin != -1){
+				begin+=search.length;  //获得加上的cookie长度之后的位置的值
+				end = document.cookie.indexOf(";",begin); //从begin开始匹配”；“，返回第一次匹配的位置
+			
+			if(end != -1){
+				end = document.cookie.length;
+			}
+			alert("名称为：" + name + "的cookie的值为" + document.cookie.substring(begin,end));
+		  }else{
+			alert("名称为：" + name + "的cookie值不存在！");
+		  }
+		}
+		
+		<!--删除cookie的方法-->
+		 function deleteCookie(){
+			var name = document.form1.delname.value;
+			document.cookie = name + "=; expires = " + new Date().toGMTString();
+			alert("名字为：" +  name + "被删除。");
+		 }
+ </script>
+ </head> 
+ <body>
+     <form  id = "form1" name = "form1" method = "post" action = "">
+	 <label>名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称&nbsp;&nbsp;：
+	 <input type = "text" name = "cookiename">
+	 </label>
+	 
+	 <p>
+		<label>cookie值：
+			<input type = "text" name = "cookievalue">
+		</label>
+	 </P>
+	 
+	 
+	 <p>
+		<label>有&nbsp;效&nbsp;期&nbsp;：
+			<input type = "text" name = "expiresdate">
+		</label>
+	 天</P>
+	 
+	 <input type = "button" name = "submit" value = "写入" onclick = "saveCookie()">
+	 
+	  <p>
+		<label>要读取得cookie名称： 
+			<input type = "text" name = "readname">
+		</label>
+		<input type = "button" name = "submit" value = "读取" onclick = "readCookie()">
+	 </P>
+	  
+	  
+	  
+	  <p>
+		<label>要删除的cookie名称：
+			<input type = "text" name = "delname">
+		</label>
+		<input type = "button" name = "submit" value = "删除" onclick = "deleteCookie()">
+	 </P>
+	  
+	 </form>
+ </body>
+ </html>

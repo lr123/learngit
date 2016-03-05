@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>array</title>
+ <script type = "text/javascript" language = "javascript">
+   var value = document.form1.name.value;
+	function saveCookie(){
+		
+		document.cookie = name + "=" + value + ";expires = " + (new Date().toGMTString() + 10000);
+	alert("写入成功！");
+	
+	readCookie();
+	}
+	
+	function readCookie(){ 
+		var search = name + "="; 
+		var begin = document.cookie.indexOf(search);
+		if(begin != -1){
+			begin = begin + search.length;
+			var end = document.cookie.indexOf(";",begin); 
+			if(end != -1){
+				end = document.cookie.length;
+				//alert("欢迎您，" + name + "先生！");
+				document.write("名称为：" + value + "的cookie的值为" + document.cookie.substring(begin,end));
+				//document.write("欢迎您，" + value + "先生！");
+			}
+		} 
+	}
+	
+ </script>
+ </head> 
+ <body>
+     <form name = "form1">
+	 <b>请输入用户名：</b>
+	 <p><input type = "text" name = "name"></P>
+	 <p><input type = "button" name = "button" value = "保存" onclick = "saveCookie()"></P>
+	 </form>
+ </body>
+ </html>

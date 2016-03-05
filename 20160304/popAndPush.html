@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>array</title>
+ <script type = "text/javascript" language = "javascript">
+		var a = new Array(1,2,3,2,4);
+		function change(a){
+		for(var i=0;i<a.length;i++){
+			document.write( "数组的值为：" + a[i] + "," + "<br>");
+		}
+		
+		document.write("数组长度为：" + a.length  + "<br>");
+		
+		}
+		 
+		document.write( "<h3>push后的结果是：</h3>" + "<br>");
+		var b = a.push("456","7885","555"); //返回push后数组的长度值
+		change(a);
+		document.write( "被返回的的元素是：" + b + "<br>");
+		document.write("<hr>");
+		
+		document.write( "<h3>pop后的结果是：</h3>" + "<br>");
+		var value = a.pop();//返回被删除的元素
+		change(a);
+		document.write( "被删除的元素是：" + value + "<br>");
+		document.write("<hr>");
+		
+ </script>
+ </head> 
+ <body>
+    
+ </body>
+ </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>array</title>
+ <script type = "text/javascript" language = "javascript">
+	var array = [32,15,125,1236,14,251,14,48];
+	for(var i=0;i<array.length;i++){
+		document.write("array["+ i +"]的值为：" + array[i] + "," + "<br>");
+	}
+	document.write("<hr>");
+	
+	
+	<!-- 对数组进行排序-->
+	function change(array){
+		for(var i=0;i<array.length;i++){
+			for(var j=0;j<array.length;j++){
+				if(array[i]<array[j]){
+					var value = array[j];
+					array[j] = array[i];
+					array[i] = value;
+				}
+			}
+		}
+	}
+	
+	array.length = 10;  //改变数组的长度，增长数组
+	change(array);      //调用函数
+	for( var i=0;i<array.length;i++){
+		document.write(array[i] + ",");
+	}
+	document.write("<hr>");
+	
+	array.length = 5;  //改变数组的长度，缩短数组
+	change(array);
+	for( var i=0;i<array.length;i++){
+		document.write(array[i] + ",");
+	}
+	document.write("<hr>");
+ </script>
+ </head> 
+ <body>
+    
+ </body>
+ </html>
