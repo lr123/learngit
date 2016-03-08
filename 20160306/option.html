@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>array</title>
+ <script type = "text/javascript" language = "javascript">
+	function radio(){
+		 var n = document.myform.radio.selectedIndex;         //使用selectIndex来获取得到值得Index编号
+		document.myform.text.value = document.myform.radio.options[n].text;//此处的值使用.text来获取
+		
+	}
+	
+	function radiogroup(){
+		with(document.myform.radiogroup){
+			for(var i=0;i<length;i++){           //length,的值为多选列表中元素的个数
+				if(potions[i].selected()){         //确认被选择的oprtion的值
+					document.myform.textarea.value += options[i].text + "\n\r";
+				}
+			}
+		}
+	}
+ </script>
+ </head> 
+ <body>
+ <h1 align = "center">This is my program!</h1>
+	<center>
+		<form name = "myform">
+			<label>单选列表：
+				<select type = "radio" name = "radio" onChange = "radio()">
+					<option>西南大学
+					<option>北京大学
+					<option>清华大学
+					<option>云南大学
+					<option>东南大学
+				</select>
+			</label>
+			<br>
+			<p>
+			<b>选择的结果：</b><br>
+			<input type = "text" name = "text"/>
+			<p>
+			<br>
+			<label>多选列表：
+				<select type = "radiogroup" name = "radiogroup" size = "10" onChange = "radiogroup()">
+					<option>西南大学
+					<option>北京大学
+					<option>清华大学
+					<option>云南大学
+					<option>东南大学
+					<option>东北大学
+				</select>
+			</label>
+			<br>
+			<p>
+			<b>选择的结果：</b><br>
+			<textarea  name = "textarea"></textarea>
+		</form>
+	</center>
+ </body>
+ </html>

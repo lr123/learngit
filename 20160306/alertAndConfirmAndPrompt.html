@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>array</title>
+ <script type = "text/javascript" language = "javascript">
+	function alertWord(){
+		alert("hello,welcome to my space！");
+	}
+	function confirm(){
+		confirm("你确定关闭这个么？");
+		return true;
+	}
+	function promptWord(){
+		var a = prompt("请输入："，"");
+		alert(a);
+	}
+	function showModalDialog(){
+		vReturn Value = window.showModalDialog("C:/Users/陆饶/Desktop/js/20160306/setTime.html", , center=1,scroll=1);
+	}
+ </script>
+ </head> 
+ <body>
+ <h1 align = "center">This is my program!</h1>
+	<center>
+		<form name = "myform"  method = "post">
+			<label>
+				<input type = "button" name = "button1" size = "40"  value = "alert" 
+				onclick = "alertWord();"/>
+			</label>
+			<br>
+			<p>
+			<label>
+				<input type = "button" name = "button2" size = "40" value = "confirm"
+				onclick = "confirm();"/>
+			</label>
+			<br>
+			<p>
+			<label>
+				<input type = "button" name = "button3" size = "40"  value = "prompt" 
+				onclick = "promptWord();"/>
+			</label>
+			<br>
+			<p>
+			<label>
+				<input type = "button" name = "button4" size = "40"  value = "showModalDialog" 
+				onclick = "showModalDialog();"/>
+			</label>
+			<br>
+			<p>
+		</form>
+	</center>
+ </body>
+ </html>

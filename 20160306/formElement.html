@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>array</title>
+ <script type = "text/javascript" language = "javascript">
+		
+ </script>
+ </head> 
+ <body>
+ <h1 align = "center">This is my program!</h1>
+	<center>
+		<form name = "myform">
+			<label>文本框一：
+				<input type = "text" name = "text1" SIZE = "20" value = "hello,text1"
+				onfocus = "myform.elements[4].value = '文本框一获得了输入焦点！'"
+				onchange = "myform.elements[4].vlaue = '文本框一中的内容改变了！'"
+				onblur = "myform.elements[4].value = '文本框一失去了焦点！'"/>
+			</label>
+			<br>
+			<p>
+			<label>文本框二：
+				<input type = "text" name = "text2" size = "20" value = "hello,text1
+				onfocus = "myform.elements[4].value = '文本框二获得了输入焦点！'"
+				onchange = "myform.elements[4].vlaue = '文本框二中的内容改变了！'"
+				onblur = "myform.elements[4].value = '文本框二失去了焦点！'"/>
+			</label>
+			<br>
+			<p>
+			<input type = "button" name = "button1" value = "检测TEXT1" onclick = "alert(document.myform.text1.value);"/>
+			<input type = "button" name = "button2" value = "检测TEXT2" onclick = "alert(document.myform.text2.value);"/><br>
+			<p>
+			<input type = "text" name = "text3" size = "60">
+		</form>
+	</center>
+ </body>
+ </html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>array</title>
+ <script type = "text/javascript" language = "javascript">
+		var i = 0;
+	function fileupload(){
+		var file = document.myform.myfile.value;
+		if(file != ""){
+			i++;
+			if(i>3){
+				alert("最多允许上传三个文件!");
+			}else{
+				if(i == 1){
+					document.myform.text1.value = file;
+				}else{
+					if(i == 2){
+						document.myform.text2.value = file;
+					}else{
+						document.myform.text3.value = file;
+					}
+				}
+			}
+		}
+	}
+ </script>
+ </head> 
+ <body>
+ <h1 align = "center">This is my program!</h1>
+	<center>
+		<form name = "myform" enctype = "multipart/form-data" method = "post">
+			<label>
+				<input type = "file" name = "myfile" size = "20" onchange = "fileupload()"/>
+			</label>
+			<br>
+			<p>
+			<label>文件一：
+				<input type = "text" name = "text1" SIZE = "20"/>
+			</label>
+			<br>
+			<p>
+			<label>文件二：
+				<input type = "text" name = "text2" size = "20"/>
+			</label>
+			<br>
+			<p>
+			<label>文件三：
+				<input type = "text" name = "text3" size = "20"/>
+			</label>
+			<br>
+			<p>
+			<input type = "button" name = "button1" value = "上传" onclick = "alert('并不是真的上传！')"/>
+			
+			
+		</form>
+	</center>
+ </body>
+ </html>
