@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>array</title>
+   <script type = "text/javascript" language = "javascript">
+   
+		//var button1 = document.getElementById("button");
+		//button1.onclick = add; 
+		function click(){
+		var num1 = document.form.text1.value;
+		var num2 = document.form.text2.value;
+			if(num1 == '' || num2 == ''){
+				alert("请输入数字!");
+				throw new Error("请输入合法的操作数！");
+			}else{
+				var num3 = parseInt(num1) + parseInt(num2);
+				alert("结果为：" + num3);
+				return true;
+			}
+		}
+		
+		function add(){
+			try{
+				click();
+			}catch(errorException){
+				alert(errorException.message);
+			}
+		}
+   </script>
+ </head> 
+ <body>
+ <h1 align = "center">This is my program!</h1>
+	<center>
+		<form name = "form">
+			请输入第一个数字：<input type = "text" name = "text1"/></br>
+			</br>
+			请输入第二个数字：<input type = "text" name = "text2"/></br>
+			</br>
+			<input type = "button"  id = "button" name = "button" value = "计算" onclick = "add()"/>
+		</form>
+	</center>
+ </body>
+ </html>

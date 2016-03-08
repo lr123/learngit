@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>document子对象</title>
+ <script type = "text/javascript" language = "javascript">
+    var image;
+	var current = 0;
+	var images = new Array(5);
+	var timerID;
+	//初始化
+	function init(){
+		for(var i=0;i<images.length;i++){
+		//设定图片的大小
+			images[i] = new Image(20,10);
+		//设定图片的地址
+			images[i].src = "E:/图片/picture/" + i + ".jpg";
+		} 
+		//最开始显示的图片
+		image = document.images[0];
+	}
+	
+	function serSrc(i){
+		current = i;
+		//设置图像的src属性，以此来实现图像的切换
+		image.src = images[i].src;
+	}
+	
+	function next(){
+		if(current >= 5){
+			current = 0;
+			serSrc(current);
+		}else{
+		//current++来获取下一张图片
+			current++;
+			serSrc(current);
+		}
+	}
+	
+	function previous(){
+		if(current <= 0){
+			current = 5;
+			serSrc(current);
+		}else{
+			current--;
+			serSrc(current);
+		}
+	}
+	
+	function play(){
+		//当图像为最后一张的时候设置下一张图片为第一张
+		if(current >= 5){
+			current = -1;
+		}
+		serSrc(++current);
+	}
+ </script>
+ </head>
+ <body onload = "init()">
+ 
+ <p align = "center"><h1>图片展示</h1></p>
+ <div align = "center"><img src = "E:/图片/picture/0.jpg"/></div>
+    <form id = "form1" name = "form1" method = "post" action = "" >
+		<input type = "button" name = "submit1" value = "第一张" onclick = "serSrc(0)">
+		<input type = "button" name = "submit2" value = "上一张" onclick = "previous()">
+		<input type = "button" name = "submit3" value = "下一张" onclick = "next()">
+		<input type = "button" name = "submit4" value = "最后一张" onclick = "serSrc(5)">
+		<input type = "button" name = "submit5" value = "图片播放" onclick = "timerID=setInterval(play,1000)">
+		<input type = "button" name = "submit6" value = "停止播放" onclick = "clearInterval(timerID)">
+	</form>
+ 
+ </body>
+ </html>

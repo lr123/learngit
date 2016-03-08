@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>array</title>
+ </head> 
+ <!--值得注意的是：script的程序应该放在<body>标签中，否则无法获取到form表单中的属性值-->
+ <body>
+    <form name = "form1">
+		<input type = "button" id = "button1" name = "button1" value = "按钮一"/>
+	    <input type = "button" id = "button2" name = "button2" value = "按钮二"/>
+		<input type = "button" id = "button3" name = "submit3" value = "按钮三"/>
+	</form>
+	 <script type = "text/javascript" language = "javascript">
+		var button1 = document.getElementById("button1");
+		
+		/*if(button1 != null){
+		document.write("取到");
+		}else{
+			document.write("没取到");
+		}*/
+		button1.onclick = clickme;//不带括号（clickme()）,是因为是吧函数clickme自身赋予事件处理器属性，而不是调用函数结果
+		document.form1.button2.onclick = clickme;
+ 
+		function clickme(){
+			if(window.numclicks){
+				numclicks++;
+			} 
+			else{
+				numclicks = 1;
+			}
+			alert("我被单击了：" + numclicks + "次！");
+		}
+		document.form1.submit3.onclick = function(){
+			alert("button3被调用了！");
+		}
+ </script>
+	 
+ </body>
+ </html>

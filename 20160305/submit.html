@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>array</title>
+ <script type = "text/javascript" language = "javascript">
+		function onsubmitfun(){
+			var name = document.myform.text1.value;
+			if(name == "a"){
+				alert("输入正确！");
+				return true;
+			}else{
+				alert("输入不正确！");
+				return false;
+			}
+		}
+ </script>
+ </head> 
+ <body>
+ <h1 align = "center">This is my program!</h1>
+		<form name = "myform" method = "post" action = "" onsubmit = "return onsubmitfun()">
+			请输入字母a：<input type = "text" name = "text1" SIZE = "10">
+			<input type = "submit" name = "button" value = "查询"/>
+		</form>
+	
+ </body>
+ </html>

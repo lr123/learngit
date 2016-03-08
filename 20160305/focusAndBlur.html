@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>array</title>
+   <script type = "text/javascript" language = "javascript">
+		function focusName(){
+			alert("请输入中文名！");
+		}
+		
+		function focusPssword(){
+			alert("请输入密码！");
+		}
+		
+		function blur(){
+			var value = document.form.text1.value;
+			if(value == ''){
+				alert("请先输入姓名！");
+			}
+		}
+		
+   </script>
+ </head> 
+ <body>
+ <h1 align = "center">This is my program!</h1>
+	<center>
+		<form name = "form">
+			请输入姓名：<input type = "text" name = "text1" onfocus = "focusName()" onblur = "blur()"/>
+			请输入密码：<input type = "text" name = "text2" onfocus = "focusPssword()"/>
+		</form>
+	</center>
+ </body>
+ </html>
