@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>array</title>
+  <script type = "text/javascript" language = "javascript">
+		function dele(){
+			p.removeChild(child);  //删除子节点child
+			p.innerText = "剩下: " + p.innerText;
+			//document.write(p.replaceChild(child));
+		}
+ </script>
+ </head> 
+ <body bgcolor = "green">
+    
+		<h1>This is my program!</h1>
+		<p>
+		<div id = "p">这是原有的节点一(father node)
+		<p>
+			<div id = "child">这是原有的节点二</div>
+			<p>
+			<input type = "button" value = "删除" onclick = "dele()"/>
+		</div>
+ </body>
+ </html>

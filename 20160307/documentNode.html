@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>array</title>
+  <script type = "text/javascript" language = "javascript">
+	function text(){
+		var type = document.createElement("p");      //创建了一个新的type节点
+		var doc = document.createTextNode("将这个textNode节点插入到第二个节点的位置!");
+		type.appendChild(doc);      //将doc节点加入到了type节点的后面
+		
+		var sing = document.getElementByTagName("p")[1];
+		document.body.insertBefore(type, sing);
+		
+	}
+ </script>
+ </head> 
+ <body bgcolor = "green" onload = "text()">
+    <center>
+		<h1>This is my program!</h1>
+		<p>这是原有的节点一</p>
+		<p>这是原有的节点二</p>
+	</center>
+ </body>
+ </html>
