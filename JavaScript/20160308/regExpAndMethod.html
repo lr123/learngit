@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>regExp</title>
+	<script type = "text/javascript" language = "javascript">
+	var str = "这是我的第一个正则表达式！";
+		function first(){
+			var myregExp = new RegExp("正则表达式","igm");
+			if(myregExp.test(str)){
+				alert("找到了指定的'正则表达式'");
+			}else{
+				alert("并未找到指定的'正则表达式'");
+			}
+		}
+		
+		function second(){
+			var myregExp = /正则表达式/igm;
+			if(myregExp.test(str)){
+				alert("找到了指定的\"正则表达式\"");
+				//或者可以写为：alert("找到了指定的'正则表达式'")
+			}else{
+				alert("并未找到指定的\"正则表达式\"");
+			}
+		}
+	</script>
+ </head> 
+ <body>
+    <center>
+		<h1>This is my program!</h1>
+	<input type = "button" value = "new" onclick = "first()"/>
+	<input type = "button" value = "/式子/" onclick = "second()"/>
+ </center>
+ </body>
+ </html>

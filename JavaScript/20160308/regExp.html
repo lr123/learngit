@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>array</title>
+ 
+ </head> 
+ <body>
+    <center>
+		<h1>This is my program!</h1>
+	
+	 <script type = "text/javascript" language = "javascript">
+	var str = "123abc11dd2a2ee3aa3kkk4aaa456789";
+	var res = /(\d)a*\1/g;
+	var arr;
+	arr = str.match(res); 
+		for(var i=0; i<arr.length; i++){
+			if(i<arr.length-1){
+				document.write("\"" +  arr[i] + "\",");  //使用转义字符"/"，来舒服“”号
+			}else{
+				document.write("\"" + arr[i] + "\"");
+			}
+		}
+ </script>
+ </center>
+ </body>
+ </html>
