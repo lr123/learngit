@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>array</title>
+  <style type = "text/css">
+		.myclass{position:relative;cursor:hand}
+  </style>
+  
+  <script type = "text/javascript" language = "javascript">
+			var ismousedown;
+			var wordobj;
+			var x;
+			var y;
+			ismousedown = false;
+			function mousemove(){
+				if((event.button == 1)&&(ismousedown == true)){
+					wordobj.style.pixelLeft = xx + event.clientX - x;
+					wordobj.style.pixelTop = yy + event.clientY - y;
+					return false;
+				}
+			}
+			
+			function mousedown(){
+				if(event.srcElement.className == "myclass"){
+					ismousedown = true;
+					wordobj = event.srcElement;
+					x = event.clientX;
+					y = event.clientY;
+					xx = wordobj.style.pixelLeft;
+					yy = wordobj.style.pixelTop;
+				}
+			return;
+			}
+			
+			function mouseup(){
+				ismousedown = false;
+				return;
+			}
+			
+			document.onmousemove = mousemove;
+			document.onmousedown = mousedown;
+			document.onmouseup = mouseup;
+		</script>
+ </head> 
+ <body>
+    <center>
+		<h1>This is my program!</h1>
+		
+	</center>
+		<font class = "myclass" size = "7" color = "#ooffoo" face = "楷体">
+			可拖动文字块
+		</font>
+	
+ </body>
+ </html>

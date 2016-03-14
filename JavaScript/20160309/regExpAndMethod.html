@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>array</title>
+  <script type = "text/javascript" language = "javascript">
+	function test1(){
+		var str;
+		str = document.myform.text.value;
+		var reg = /(a)b*\1/gim;
+		var s;
+		if(reg.test(str)){
+			s = "匹配成功\n";
+			s += "RegExp.index为：" + RegExp.index + "\n";
+			s += "RegExp.lastIndex为：" + RegExp.lastIndex + "\n";
+			s += "RegExp.lastMatch为：" + RegExp.lastMatch + "\n";
+			s += "RegExp.lastParen为：" + RegExp.lastParen + "\n";
+			s += "RegExp.leftContext为：" + RegExp.leftContext + "\n";
+			s += "RegExp.rightContext为：" + RegExp.rightContext + "\n";
+			s += "RegExp.$1为：" + RegExp.$1 + "\n";
+			s += "RegExp.$2为：" + RegExp.$2 + "\n";
+			s += "RegExp.$3为：" + RegExp.$3 + "\n";
+			alert(s);
+		}else{
+			alert("匹配失败！");
+		}
+	}
+
+	function test2(){
+		var str;
+		str = document.myform.text.value;
+		var reg = /(a)b*\1/gim;
+		var s;
+		var arr = reg.exec(str);
+		if(arr != null){
+			s = "匹配成功\n";
+			s += "arr.index为：" + arr.index + "\n";
+			s += "arr.input" + arr.input + "\n";
+			s += "arr.lastIndex为：" + arr.lastIndex + "\n";
+			s += "数组的长度为：" + arr.length + "\n";
+			s += "返回的数组内容为[";
+			
+			for(var i = 0; i < arr.length; i++){
+				if(i<arr.length-1){
+					s += arr[i] + ",";
+				}else{
+					s += arr[i] + "]\n";
+				}
+					
+			}
+			alert(s);
+			
+		}else{
+			alert("匹配失败！");
+		} 
+	}
+	
+	function test3(){
+		var str;
+		str = document.myform.text.value;
+		var reg = /(a)b*\1/gim;
+		var s;
+		reg.compile("123abc", "igm");
+		if(reg.test(str)){
+			s = "当前的正则表达式为：/123abc/\n";
+			s += "匹配成功\n";
+			s += "RegExp.index为：" + RegExp.index + "\n";
+			s += "RegExp.lastIndex为：" + RegExp.lastIndex + "\n";
+			s += "RegExp.lastMatch为：" + RegExp.lastMatch + "\n";
+			s += "RegExp.lastParen为：" + RegExp.lastParen + "\n";
+			s += "RegExp.leftContext为：" + RegExp.leftContext + "\n";
+			s += "RegExp.rightContext为：" + RegExp.rightContext + "\n";
+			s += "RegExp.$1为：" + RegExp.$1 + "\n";
+			s += "RegExp.$2为：" + RegExp.$2 + "\n";
+			s += "RegExp.$3为：" + RegExp.$3 + "\n";
+			
+			alert(s);
+		}else{
+			alert("匹配失败！");
+		}
+	}
+ </script>
+ </head> 
+ <body>
+    <center>
+		<h1>This is my program!</h1><br>
+		<h3>测试正则表达式：/(a)b*\1/gi</h3>
+		<form name = "myform">
+		请输入需要匹配的字符串：<br>
+		<input type = "text" name = "text" >
+		<br>
+		<p>
+		<input type = "button" onclick = "test1()" value = "test方法"/>
+		<input type = "button" onclick = "test2()" value = "exec方法"/>
+		<input type = "button" onclick = "test3()" value = "compile方法"/>
+		
+		</form>
+		
+	</center>
+ </body>
+ </html>

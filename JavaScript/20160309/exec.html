@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>array</title>
+  <script type = " /javascript" language = "javascript">
+	function test2(){
+		var str;
+		str = document.myform.text.value;
+		var reg = /(a)b*\1/gim;
+		var s;
+		var arr = reg.exec(str);
+		if(arr != null){
+			s = "匹配成功\n";
+			s += "arr.index为：" + arr.index + "\n";
+			s += "arr.input" + arr.input + "\n";
+			s += "arr.lastIndex为：" + arr.lastIndex + "\n";
+			s += "数组的长度为：" + arr.length + "\n";
+			s += "返回的数组内容为[";
+			
+			for(var i = 0; i < arr.length; i++){
+				if(i<arr.length-1){
+					s += arr[i] + ",";
+				}else{
+					s += arr[i] + "]\n";
+				}
+					
+			}
+			alert(s);
+			
+		}else{
+			alert("匹配失败！");
+		} 
+	}
+	
+ </script>
+ </head> 
+ <body>
+    <center>
+		<h1>This is my program!</h1><br>
+		<h3>测试正则表达式：/(a)b*\1/gi</h3>
+		<form name = "myform">
+		请输入需要匹配的字符串：<br>
+		<input type = "text" name = "text" >
+		<br>
+		<p>
+		
+		<input type = "button" onclick = "test2()" value = "exec方法"/>
+	
+		
+		</form>
+		
+	</center>
+ </body>
+ </html>
