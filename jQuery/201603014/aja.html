@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>工厂函数</title>
+  <style type = "text/css">
+	*{font-size: 12px;}
+	#caption{margin-left:6.5em; font-weight:bold;}
+  </style>
+  
+  <script type="text/javascript" language = "javascript" src = "C:/Users/陆饶/Desktop/js/jQuery/jquery-1.12.1.js"></script>
+  <script type = "text/javascript">
+	$(document).ready(function(){
+		$("#txtUserName").blur(function(){  //设置用户名框失去焦点时调用的函数 
+			if($(this).val() == ""){
+				$("#msg1").html("用户名不能为空！").css("color","red");
+				$(this).focus();
+				return;
+			}
+			//以异步方式向服务器发送数据并将http响应文本插入到span元素中
+			$("#msg1").load("checkusername.asp",{username:$(this).val()}).css("color","red");
+		});
+		
+		$(document.form1).submit(function(){   //设置表单的submit事件
+			var status = true;
+			//判断密码是否为空
+			if($("#txtPasswprd").val() == ""){
+				$("#msg2").html("密码不能为空!").css("color","red");
+				$("#txtPasswprd").focus();    //将焦点转移到密码框中
+				status = false;
+			}else{
+				$("#msg2").html("");
+			}
+			//判断用户名是否为空
+			if($("#txtUserName").val() == ""){
+				$("#msg1").html("用户名不能为空！").css("color","red");
+				$("#txtUserName").focus();  //将焦点转移到文本框中
+				status = false;
+			}else{
+				$("#msg1").html("");
+			}
+			
+			this.action = "javascript:alert('用户名' + $('#txtUserName').val());";
+			return status;
+			
+		});
+	});
+  </script>
+</head>
+
+<body>
+	<form id = "form1" name = "form1" method = "post" 
+	action = "javascript:alert('用户名：' + document.form1.txtUserName.value);" onsubmit = "return checkData()">
+		<div id = "caption">注册新用户</div>
+		<table border = "0">
+			<tr>
+				<td><label for = "txtUserName">用户名：</label></td>
+				<td><input name = "txtUserName" type = "text" id = "txtUserName" onblur = "sendRequest();"/><span id = "msg1"></span></td>
+			</tr>
+			
+			<tr>
+				<td><label for = "txtPasswprd">密码：</label></td>
+				<td><input name = "txtPasswprd" type = "password" id = "txtPasswprd"/><span id = "msg2"></span></td>
+			</tr>
+			
+			<tr>
+				<td>&nbsp;</td>
+				<td><input name = "btnReg" type = "submit" id = "btnReg" value = "提交"/></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>工厂函数</title>
+  <style type = "text/css">
+	*{font-size: 12px;}
+	#caption{margin-left:6.5em; font-weight:bold;}
+  </style>
+  
+  <script type="text/javascript" language = "javascript" src = "C:/Users/陆饶/Desktop/js/jQuery/jquery-1.12.1.js"></script>
+  <script type = "text/javascript">
+	//创建createXMLHttpReq函数
+	function createXMLHttpReq(){
+		//创建XMLHttpRequest对象
+		if(window.XMLHttpRequest){
+			return new XMLHttpRequest();
+		}else if(window.ActiveXObject){
+			//将各个XMLHttpRequest签名存储在一个数组中
+			//其中版本最新的位于第一个
+			var aVersions = ["MSXML2.XMLHttp.6.0","MSXML2.XMLHttp.5.0","MSXML2.XMLHttp.4.0",
+			"MSXML2.XMLHttp.3.0","MSXML2.XMLHttp","Microsoft,XMLHttp"];
+			for(var i = 0; i < aVersions.length; i++){
+				try{
+					var oXmlHttpReq = new ActiveXObject(aVersions[i]);//创建XMLHttpRequest对象
+					return oXmlHttpReq;
+				}catch(oError){}
+			}
+		}
+		throw new Error("不能创建XMLHttpRequest对象");
+	}
+	//调用createXMLHttpReq函数创建对象
+	var oXmlHttpReq = createXMLHttpReq();
+	
+	//通过JavaScript客户端脚本向服务器发送异步请求
+	function sendRequest(){
+		if(oXmlHttpReq){
+			try{
+				var userName = document.form1.txtUserName.value;
+				var sData = "userName=" + escape(userName); //对用户进行编码
+				
+				if(userName == ""){
+					document.getElementById("msg1").innerHTM = "用户名不能为空！";
+					document.getElementById("msg1").style.color = "red";
+					return;
+				}
+				
+				//XMLHttpRequest对象的open方法
+				oXmlHttpReq.open("POST","checkusername.asp",true);
+				//设置请求的头信息，指定向服务器提交数据表单时所采用的编码类型
+				oXmlHttpReq.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+				//对于异步操作，用onreadystatechange属性制动完成通话后回调函数
+				oXmlHttpReq.onreadystatechange = callback;
+				//向服务器发送HTTP请求并接受响应
+				oXmlHttpReq.send(sData);
+			}catch(oErr){
+				alert("无法连接服务器：" + oErr.toString());
+			}
+		}
+	}
+	
+	
+	//callback函数
+	//获取服务器响应的数据，实现局部页面刷新
+	function callback(){
+		//readyState为4，说明完成了HttpRequest响应的接收
+		if(oXmlHttpReq.readyState == 4){
+			//status的值为200则说明服务器响应正常
+			if(oXmlHttpReq.status == 200){
+				//responseText属性包含客户端接受的HTTP响应文本
+				var sResponse = oXmlHttpReq.responseText;
+				//通过span元素显示服务器响应的数据
+				document.getElementById("msg1").innerHTML = sResponse;
+				//设置span文本的颜色
+				document.getElementById("msg1").style.color = "gray";
+				
+			}else{
+				alert("服务器出现错误：" + oXmlHttpReq.statusText + "(" + oXmlHttpReq.status + ")");
+			}
+		}
+	
+	}
+	
+	//checkData函数；
+	//对用户在文本框中输入的密码内容进行检查
+	function checkData(){
+		var username = document.form1.txtUserName.value;
+		var password = document.form1.txtPasswprd.value;
+		var status = true;
+		if(password == ""){
+			document.getElementById("msg2").innerHTML = "密码不能为空！";
+			document.getElementById("msg2").style.color = "rad";
+			document.form1.txtPasswprd.focus();
+			status = false;
+		}else{
+			document.getElementById("msg2").innerHTML = "";
+		}
+		
+		if(username == ""){
+			document.getElementById("msg1").innerHTML = "用户名不能为空！";
+			document.getElementById("msg1").style.color = "rad";
+			document.form1.txtUserName.focus();
+			status = false;
+		}else{
+			document.getElementById("msg1").innerHTML = "";
+		}
+		return status;
+	}
+  </script>
+</head>
+
+<body>
+	<form id = "form1" name = "form1" method = "post" 
+	action = "javascript:alert('用户名：' + document.form1.txtUserName.value);" onsubmit = "return checkData()">
+		<div id = "caption">注册新用户</div>
+		<table border = "0">
+			<tr>
+				<td><label for = "txtUserName">用户名：</label></td>
+				<td><input name = "txtUserName" type = "text" id = "txtUserName" onblur = "sendRequest();"/><span id = "msg1"></span></td>
+			</tr>
+			
+			<tr>
+				<td><label for = "txtPasswprd">密码：</label></td>
+				<td><input name = "txtPasswprd" type = "password" id = "txtPasswprd"/><span id = "msg2"></span></td>
+			</tr>
+			
+			<tr>
+				<td>&nbsp;</td>
+				<td><input name = "btnReg" type = "submit" id = "btnReg" value = "提交"/></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
