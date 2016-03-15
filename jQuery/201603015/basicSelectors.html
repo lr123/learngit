@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>工厂函数</title>
+  <style type = "text/css">
+	
+	.one{border:1px solid #03f; float:left; margin:1em; padding:1.5em; width:106px;}
+	.two{background-color:#FC0;}
+	.three{background-color:#FCF;}
+  </style>
+	
+  <script type="text/javascript" language = "javascript" src = "C:/Users/陆饶/Desktop/js/jQuery/jquery-1.12.1.js"></script>
+  <script type = "text/javascript">
+	$(document).ready(function(){
+		$("*").css("font-size","12px");   //设置所有的元素字号
+		$("div").addClass("one");        //为所有的div元素添加one类（one类设置了样式）
+		$("#div1").addClass("two");
+		$("#div2,#div3").addClass("three");
+		$("p,h3").css("color","red").attr("align","center");   //获取h3和p中的元素，设置其样式
+		$("#span1").html("本页中同时运用one类的元素一共有" + $(".one").length + "个;" 
+						+ "同时one和three一共有：" + $(".one.three").length + "个。");
+	});
+  </script>
+</head>
+
+<body>
+	<h3>这是文中的标题</h3>
+	<p><span id = "span1"></span></p>
+	<div id = "div1">div元素：ID属性为div1</div>
+	<div id = "div2">div元素：ID属性为div2</div>
+	<div id = "div3">div元素：ID属性为div3</div>
+</body>
+</html>

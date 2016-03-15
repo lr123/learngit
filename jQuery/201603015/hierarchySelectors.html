@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>层级选择器运用示例</title>
+  <style type = "text/css">
+	
+	
+  </style>
+	
+  <script type="text/javascript" language = "javascript" src = "C:/Users/陆饶/Desktop/js/jQuery/jquery-1.12.1.js"></script>
+  <script type = "text/javascript">
+	$(document).ready(function(){
+		var a = new Array();
+		var b = new Array();
+		$("table>*").each(function(){  //遍历table元素下的所有子元素
+			a[a.length] = this.tagName.toLowerCase();    //获取单前元素的标记名并储存在数组a中
+		});
+		$("table *").each(function(){  //遍历table元素下的所有后代元素
+			b[b.length] = this.tagName.toLowerCase();   //获取单前元素的标记名并储存在数组b中
+		});
+		
+		var s = "<b>table元素的子元素有：</b></br>" + a.join(",");
+			s += "<b>table元素的所有后代元素有：</b></br>" + b.join(",");
+			$("#p1").html("s");
+			
+			$(".one + td ").css("background","red");
+			$("#td1").html("$(\".one + td\")返回" + $(".one + td ").length + "个同辈元素。");   //查找含有one类的元素紧跟one类后的元素
+			$(".two ~ td").css("background","blue");  //对具有two类的元素查找其后的所有同辈并设置背景颜色
+			
+			$("#td2").html("$(\".one ~ td\")返回" + $(".one ~ td ").length + "个同辈元素。");
+	});
+  </script>
+</head>
+
+<body>
+	<table width = "100%" border = "1" cellspacing = "2">
+		<caption>表格（table元素）</caption>
+		<tbody>
+			<tr>
+				<td width = "189" class = "one" id = "td1">&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td class = "two" id = "td2">&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td class = "one">&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td class = "two">&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<p id = "p1"></p>
+</body>
+</html>
