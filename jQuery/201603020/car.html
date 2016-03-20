@@ -1,0 +1,226 @@
+﻿<!doctype>
+<html>
+    <head>
+		<!--当前页面的编码集 -->
+		<meta http-equiv = "Content-Type" content = "text/html; charset = "UTF-8""></meta>
+		<!-- 当前页面的三要素---->
+        <title>购物车</title>		
+		<meta name = "Keywords" content = "关键词;关键词"></meta>
+		<meta name = "description" content = "">
+		
+		<!-- css,js-->
+		<!-- css:层叠样式表-->
+		<style type = "text/css">
+		 /*使与浏览器的边距都为0*/
+		  *{margin:0;padding:0;}
+		 /*设置body中的样式*/
+		  body{background:#BFFFEF;font-size:14px;font-family:"微软雅黑"; color:#555555;}
+		 /* 以点开头的css样式*/
+		 /*设置购物车top部分的样式*/
+		  .top{width:100%;height:280px;text-align:center;}
+		  
+		  
+		 /* 设置购物车中间部分的内容*/
+		 .car{width:960px;height:200px;margin:20 auto;font-size:18px;}
+		 .car .car_title span{font-size:24px;font-weight:bold;color:#000000;text-align:center;}
+		 .car .car_ul{width:100%;height:150px;list-style:none;}
+		    /*对下文中“car_ul li里面的内容进行修饰（对整个li里的内容进行处理）”*/
+		 .car .car_ul li{width:100%;height:40px;margin:8px auto;float:left;}
+		    /*设置下文中car_ul li span中的样式（全部ui中li中的文字样式）*/
+		 .car .car_ul li span{text-align:center;display:block;float:left;width:280px;height:40px;}
+		    /*对下文中“car_ul_l1下面的内容进行修饰”*/
+		 .car .car_ul .car_ul_l1 span{width:200px;height:50px;display:block;float:left;text-align:center;margin:8px auto;font-weight:bold;}
+		    /*设置第一行的背景颜色*/
+		 .car .car_ul .car_ul_l1{background:#BFCFFF;}
+		 .car .car_ul .car_ul_l1 .car_ul_l1_name{margin-left:80px;}
+		   
+		   /*设置.car .car_ul .car_ul_l2 .l_info中的样式（图片的样式）*/
+		 .car .car_ul .car_ul_l2 span{display:block;}
+		   /*设置car_ul_l2_a的样式*/
+		 .car .car_ul .car_ul_l2 .l_info .car_ul_l2_a{width:280px;text-decoration:none;}
+		 
+		 
+		 /* 设置购物车中底面部分的东西*/
+		 .shop{width:960px;height:600px;margin:100px auto;}
+		 .shop hl{font-size:22px;}
+		 .shop .s_ul{list-style:none;width:960px;margin:20px auto;}
+		 .shop .s_ul li{float:left;margin:14px;}
+		 .shop .s_ul li p .price{color:red;font-size:18px;float:left;}
+		 .shop .s_ul li p{width:140px;height:30px;}
+		 .shop .s_ul li p .num{font-size:10px;float:right;height:20px;}
+		 .shop .s_ul li .addshop{font-size:18px;background:#c40000;width:140px;height:30px;display:block;text-align:center;text-decoration:none;color:white;}
+		</style>
+    </head>
+	   
+	<body>
+	 <!-- class自定义名称<div class = "car"></div>---->
+	     <!--定义了购物车的头部分内容样式-->
+		   <div class = "top">
+		   <!--图片内容样式alt，width，height，src-->
+		     <img src = "images/time.jpg" alt = "双十一活动" width = "960" height = "280" />
+		   
+		   </div>
+	     <!--car的div样式-->
+           <div class = "car">
+		      <p class = "car_title">
+			     <span>我的购物车</span>现在 <a href = "#">登录 </a>你购物车中的商品将被永久保存
+			  </p>
+			  <ul class = "car_ul">
+		       <li class = "car_ul_l1">
+			     <span class = "car_ul_l1_name">商品</span>
+				 <span>双十一优惠价</span>
+				 <span>是否有货</span>
+				 <span><a href = "javascript,;">清空购物车</a></span>
+			   </li>
+			   <li class = "car_ul_l2">
+			     <span class = "l_info">
+				    <a href = "javascript,;"><img src = "images/1.jpg" alt = "商品1" width = "50" height = "100%"/></a>
+					<a href= "javascript,;" class = "car_ul_l2_a">全棉的毛衣，漂亮的棉衣！</a>
+				 </span>
+				 <span>优惠价200￥</span>
+				 <span>有</span>
+			   </li>
+			   <li class = "car_ul_l2">
+			     <span class = "l_info">
+				    <a href = "javascript,;"><img src = "images/2.jpg" alt = "商品2" width = "50" height = "100%"/></a>
+					<a href= "javascript,;" class = "car_ul_l2_a">全棉的毛衣，漂亮的棉衣！</a>
+				 </span>
+				 <span>优惠价200￥</span>
+				 <span>有</span>
+			   </li>
+			   </li>
+			   <li class = "car_ul_l2">
+			     <span class = "l_info">
+				    <a href = "javascript,;"><img src = "images/3.jpg" alt = "商品3" width = "50" height = "100%"/></a>
+					<a href= "javascript,;" class = "car_ul_l2_a">全棉的毛衣，漂亮的棉衣！</a>
+				 </span>
+				 <span>优惠价200￥</span>
+				 <span>有</span>
+			   </li>
+			 </ul>
+		   </div>		 
+		   <div class = "shop">
+		   <h1>双十一购物车物品--棉衣</h1>
+		   <ul class = "s_ul">
+			   <li>
+			     <a href = "javascript,;">
+			     <img src = "images/1.jpg" alt = "商品1" width = "140" height = "140"/>
+				 </a>
+				 <p>商品信息--棉衣</p>
+				 <p>
+				 <span class = "price">￥238</span>
+				 <span class = "num">交易量是1242</span>
+				 </p>
+				 <a href = "javascript,;" class = "addshop">加入购物车</a>
+			   </li>
+			  
+			   <li>
+			     <a href = "javascript,;">
+			     <img src = "images/2.jpg" alt = "商品1" width = "140" height = "140"/>
+				 </a>
+				 <p>商品信息--棉衣</p>
+				 <p>
+				 <span class = "price">￥238</span>
+				 <span class = "num">交易量是1242</span>
+				 </p>
+			     <a href = "javascript,;" class = "addshop">加入购物车</a>
+			   </li>
+			    <li>
+			     <a href = "javascript,;">
+			     <img src = "images/3.jpg" alt = "商品1" width = "140" height = "140"/>
+				 </a>
+				 <p>商品信息--棉衣</p>
+				 <p>
+				 <span class = "price">￥238</span>
+				 <span class = "num">交易量是1242</span>
+				 </p>
+				 <a href = "javascript,;" class = "addshop">加入购物车</a>
+			   </li>
+			  
+			   <li>
+			     <a href = "javascript,;">
+			     <img src = "images/4.jpg" alt = "商品1" width = "140" height = "140"/>
+				 </a>
+				 <p>商品信息--棉衣</p>
+				 <p>
+				 <span class = "price">￥238</span>
+				 <span class = "num">交易量是1242</span>
+				 </p>
+			     <a href = "javascript,;" class = "addshop">加入购物车</a>
+			   </li>
+			    <li>
+			     <a href = "javascript,;">
+			     <img src = "images/2.jpg" alt = "商品1" width = "140" height = "140"/>
+				 </a>
+				 <p>商品信息--棉衣</p>
+				 <p>
+				 <span class = "price">￥238</span>
+				 <span class = "num">交易量是1242</span>
+				 </p>
+				 <a href = "javascript,;" class = "addshop">加入购物车</a>
+			   </li>
+			  
+			   <li>
+			     <a href = "javascript,;">
+			     <img src = "images/4.jpg" alt = "商品1" width = "140" height = "140"/>
+				 </a>
+				 <p>商品信息--棉衣</p>
+				 <p>
+				 <span class = "price">￥238</span>
+				 <span class = "num">交易量是1242</span>
+				 </p>
+			     <a href = "javascript,;" class = "addshop">加入购物车</a>
+			   </li>
+			    <li>
+			     <a href = "javascript,;">
+			     <img src = "images/1.jpg" alt = "商品1" width = "140" height = "140"/>
+				 </a>
+				 <p>商品信息--棉衣</p>
+				 <p>
+				 <span class = "price">￥238</span>
+				 <span class = "num">交易量是1242</span>
+				 </p>
+				 <a href = "javascript,;" class = "addshop">加入购物车</a>
+			   </li>
+			  
+			   <li>
+			     <a href = "javascript,;">
+			     <img src = "images/3.jpg" alt = "商品1" width = "140" height = "140"/>
+				 </a>
+				 <p>商品信息--棉衣</p>
+				 <p>
+				 <span class = "price">￥238</span>
+				 <span class = "num">交易量是1242</span>
+				 </p>
+			     <a href = "javascript,;" class = "addshop">加入购物车</a>
+			   </li>
+			    <li>
+			     <a href = "javascript,;">
+			     <img src = "images/1.jpg" alt = "商品1" width = "140" height = "140"/>
+				 </a>
+				 <p>商品信息--棉衣</p>
+				 <p>
+				 <span class = "price">￥238</span>
+				 <span class = "num">交易量是1242</span>
+				 </p>
+				 <a href = "javascript,;" class = "addshop">加入购物车</a>
+			   </li>
+			  
+			   <li>
+			     <a href = "javascript,;">
+			     <img src = "images/2.jpg" alt = "商品1" width = "140" height = "140"/>
+				 </a>
+				 <p>商品信息--棉衣</p>
+				 <p>
+				 <span class = "price">￥238</span>
+				 <span class = "num">交易量是1242</span>
+				 </p>
+			     <a href = "javascript,;" class = "addshop">加入购物车</a>
+			   </li>
+			   
+			 
+		   </ul>
+		   </div>
+		 
+	</body>
+</html>
