@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>工厂函数</title>
+  <style type = "text/css">
+  </style>
+	
+  <script type="text/javascript" language = "javascript" src = "C:/Users/陆饶/Desktop/js/jQuery/jquery-1.12.1.js"></script>
+  <script type = "text/javascript">
+	$(document).ready(function(){
+		$(":header").css("color","#999");
+		$("table tr:first").css("background","#EED");      //设置表格中第一行背景色
+		$("tbody tr:even").css("background","#FE0");       //设置tbody中偶数行的背景颜色
+		$("tbody tr:odd").css("background","#9EF");           //奇数行
+		$("tbody tr:last").css("background","#F90");         //tbody最后一行
+		$("#tr3 td:eq(3)").html("索引值等于三");
+		$("#tr4 td:lt(3)").html("索引值小于三");
+		$("#tr5 td:gt(3)").html("索引值大于三");
+		$("#td63").html("id = td63");
+		$("#tr6 td:not(#td63)").css("background","#3F0");
+		
+		
+		$("h3:not(:animated)").click(function(){
+			$(this).animate({fontSize:"1.5em"},500);     //在半秒钟将字号增加到1.5倍
+			$(this).animate({fontSize:"1em"},500);
+		});
+	});
+  </script>
+</head>
+
+<body>
+	<h3 align = "center">基本过滤器运用示例</h3>
+	<table border = "1" align = "center" cellpadding = "3" cellspacing = "1" id = "table1">
+		<thead>
+			<tr>
+				<th scope = "col">&nbsp;</th><th scope = "col">&nbsp;</th>
+				<th scope = "col">&nbsp;</th><th scope = "col">&nbsp;</th>
+				<th scope = "col">&nbsp;</th><th scope = "col">&nbsp;</th><th scope = "col">&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+				<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+			</tr>
+			
+			<tr id = "tr3">
+				<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+				<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+			</tr>
+			
+			<tr id = "tr4">
+				<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+				<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+			</tr>
+			
+			<tr id = "tr5">
+				<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+				<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+			</tr>
+			
+			<tr id = "tr6">
+				<td>&nbsp;</td><td>&nbsp;</td><td id = "td63">&nbsp;</td>
+				<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+			</tr>
+			
+			<tr>
+				<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+				<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+			</tr>
+			
+			<tr>
+				<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+				<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
