@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>自定义动画</title>
+<style type = "text/css">
+	button{font-size: 12px;}
+	img{position:absolute;}
+	img#bird01{left:300px;top:138px;}
+	img#duck{left:36px;top:30px;}
+  </style>
+	
+  <script type="text/javascript" language = "javascript" src = "C:/Users/陆饶/Desktop/js/jQuery/jquery-1.12.1.js"></script>
+  <script type = "text/javascript">  
+	$(document).ready(function(){
+		$("button#start").click(function(){
+			this.disabled = true;
+			$("img#bird01").animate({left:80, top:0, height:80, width:120},6000,function(){
+				$("button#start")[0].disabled = false;
+			});
+			$("img#duck").animate({left:"+=268", top:130 ,height:"-=30" ,width:"-=24"},6000);
+		});
+		
+		$("button#button2").click(function(){
+			$("img#duck").slideDown(300).delay(800).slideUp(300);
+			var n = $("img#duck").queue("fx");
+			$("p").text("队列长度为：" + n.length);
+			//$("img#duck").clearQueue();
+			$("img#duck").queue(function(){
+				$(this).slideDown(600);
+				$(this).dequeue();
+			});
+		});
+	});
+  </script>
+</head>
+
+<body>
+		<button id = "start">开始动画</button></br>
+		<img id = "bird01" src = "C:\Users\陆饶\Pictures\1.gif" width = "90" height = "60"/>
+		<img id = "duck" src = "C:\Users\陆饶\Pictures\2.gif" width = "120" height = "96"/>
+		</br>
+		<button id = "button2">点击按钮进行队列操作</button>
+		<p></p>
+</body>
+</html>

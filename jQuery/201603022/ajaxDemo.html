@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ajax异步传输过程</title>
+  <style type = "text/css">
+	p,button,li{font-size:12px}
+	span{font-size:22px; font-style:italic; font-weight:bold; color:red; width:145px; background-color:yellow;
+	display:block; position:relative;}
+  </style>
+	
+  <script type="text/javascript" language = "javascript" src = "C:/Users/陆饶/Desktop/js/jQuery/jquery-1.12.1.js"></script>
+  <script type="text/javascript" language = "javascript" src = "C:/Users/陆饶/Desktop/js/jQuery/ajax.js"></script>
+  <script type = "text/javascript">
+  
+  var xhr;
+	function callback(){                  //当请求状态发生变化时调用执行该函数
+		var states = ["正在初始化......","正在初始化请求....","正在发送请求....","正在接收数据....","正在解析数据...."];
+		$("ol").append("<li>" + states[xhr.readyState] + "</li>");
+		$("li:last").append("完成");
+		
+		
+		if(xhr.readyState == 4 && xhr.status == 200){
+			var sHeaders = xhr.getAllResponseHeaders();
+			var sResponse = xhr.responseText;
+			
+		$("p:first").prepend("<b>响应标头：</b><br>" + sHeaders);
+		$("span").hide().fadeIn(2000).animate({left:"+=168"},2000).animate({top:"-=16",fontSize:"22px"},1000);
+		}
+	}
+	
+	//当加载完毕html是，对绑定时间进行处理
+	$(document).ready(function(){
+		$("button").click(function(){
+			xhr = createXMLHttpReq();           //引用ajax.js文件中的createXMLHttpReq()方法
+			if(xhr){
+				try{
+					xhr.open("GET","test.html","true");           //设定请求的方法，目标，使用异步操作
+					xhr.onreadystatechange = callback;           //设置请求状态变化时执行的回调函数
+					xhr.send(null);
+				}catch(oError){                 //发送异步请求并接受数据
+					alert("无法连接到服务器：" + oError.toString());
+				}
+			}
+		});
+	});
+  </script>
+</head>
+
+<body>
+	<button>发送请求</button>
+	<ol></ol>
+	<p></p>
+	<p></p>
+</body>
+</html>

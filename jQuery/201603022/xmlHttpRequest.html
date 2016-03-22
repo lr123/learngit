@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ajax创建XMLHttpRequest对象</title>
+  <style type = "text/css">
+  </style>
+	
+  <script type="text/javascript" language = "javascript" src = "C:/Users/陆饶/Desktop/js/jQuery/jquery-1.12.1.js"></script>
+  <script type="text/javascript" language = "javascript" src = "C:/Users/陆饶/Desktop/js/jQuery/ajax.js"></script>
+  <script type = "text/javascript">
+	$(document).ready(function(){
+		var xhr;
+		try{
+			xhr = createXMLHttpReq();
+		}catch(oErr){
+			$("p").text("脚本运行异常：" + oErr.toString());
+			
+			
+		}
+		if(xhr){
+			$("p").text("XMLHttpRequest对象创建成功。");
+			$("P:last").text(xhr);
+		}
+	});
+  </script>
+</head>
+
+<body>
+	<p></p></br>
+	<p></p>
+</body>
+</html>
