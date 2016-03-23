@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>工厂函数</title>
+  <style type = "text/css">
+	
+  </style>
+	
+  <script type="text/javascript" language = "javascript" src = "C:/Users/陆饶/Desktop/js/jQuery/jquery-1.12.1.js"></script>
+  <script type = "text/javascript">
+	$(document).ready(function(){
+		$("p:contains(jQuery)").css("font-weight","bold");            //设置包含“jQuery”的段落的字体粗细
+		$("td,p").attr("align","center");                             //设置单元格和段落的水平方式
+		$("td:contains(基本)").css("background-color", "#F00");        //设置包含“基本”的单元格的背景颜色 
+		$("td:contains(内容)").css("background-color", "#FF0");          //设置包含“内容”的。。。。。
+		$("td:contains(属性)").css("background-color", "#CFF");          //设置包含“属性”的。。。。。。
+		
+		//设置以has（）中的元素为子元素的元素的属性值
+		$("td:has(div)").css("background-color", "#3CF");
+		$("td:has(p)").css("background-color", "#F96");
+		$("td:has(span)").css("background-color", "#6C0");
+		
+		$("#tr2 td:empty:eq(0)");
+		$("#tr2 td:empty").css("background-color", "#CF3").html("空");
+		
+		$("#tr2 td:parent").css("background", "yellow");
+		$("#tr3 td:not(:parent)").css("background", "#FCF");
+		$("#tr3 td:parent").css("background", "red");
+	});
+  </script>
+</head>
+
+<body>
+	<p>jQuery内容过滤器运用示例</P>
+	<table width = "368" border = "1" align = "center" cellpadding = "5" cellspacing = "0">
+		<tr>
+			<td>基本过滤选择器</td>
+			<td>内容过滤选择器</td>
+			<td>属性过滤选择器</td>
+		
+		</tr>
+		<tr>
+			<td><div>div元素</div></td>
+			<td><p>p元素</p></td>
+			<td><span>span元素</span></td>
+		</tr>
+		<tr id = "tr2">
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr id = "tr3">
+			<td></td>
+			<td>文本</td>
+			<td><input type = "button" value = "按钮"/></td>
+		</tr>
+	</table>
+</body>
+</html>
