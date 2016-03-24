@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>工厂函数</title>
+  <style type = "text/css">
+	body{text-align:center;}
+	.selected{background-color:#F90;}
+  </style>
+	
+  <script type="text/javascript" language = "javascript" src = "C:/Users/陆饶/Desktop/js/jQuery/jquery-1.12.1.js"></script>
+  <script type = "text/javascript">
+	$(document).ready(function(){
+		var selector;
+		$("tr td").each(function(){         //遍历所有单元格
+			$(this).html(this.id).attr("align", "center");
+		});
+		
+		$("#list1").change(function(){
+			$(".selected").removeClass();
+			var value = $(":text[name = value]").val();  //获取文本框的值
+			var text = this.options[this.selectedIndex].innerHTML;          //获取下拉菜单选中的项的文本
+			
+			if(value == ""&& this.value != text){
+				$("#p1").html("请提供一个值!").css("color", "#F00");
+				$("#span1").html("");               //消除span1中的内容
+				return;
+			}else if(this.value == "包含ID"){
+				selector = "tr td[id]";           //此选择择器匹配所哟含有ID属性的元素
+				$("#p1").html("");
+			}else if(this.value == "复合选择器"){
+				selector = "tr td[id][title]";      //此选择器匹配所有包含ID和title属性的元素
+				$("#p1").html("");
+			}else{
+				selector = "tr td[id" + $(this).val() + value +"]";
+				$("#p1").html("");
+			}
+			$(selector).addClass("selected");
+			$("#span1").html("选择器：" + selector).css("color","blue");
+		});
+		$(":text[name = value]").keyup(function(){       //为元素编写keyup事件
+			$("#list1").change();
+		});
+	});
+  </script>
+</head>
+
+<body>
+	<h3>使用ID属性从表格中筛选单元格</h3>
+	<p align = "center">单元格ID：
+		<select name = "list1" id = "list1">
+			<option>--选择--</option>
+			<option>包含ID</option>
+			<option value = "=">等于</option>
+			<option value = "!=">不等于</option>
+			<option value = "*=">包含</option>
+			<option value = "^=">开始于</option>
+			<option value = "$=">结束于</option>
+			<option>复合选择器</option>
+		</select>
+		
+		<input name = "value" type = "text" size = "10"/>&nbsp;
+		<span id = "span1"></span>
+	</p>	
+	<p id = "p1" align = "center"></p>
+	
+	
+	<table width = "398" align = "center" border = "1" cellpadding = "10" cellspacing = "0">
+		<tr>
+			<td id = "td11" title = "这是第一个单元格">&nbsp;</td>
+			<td id = "td12">&nbsp;</td>
+			<td id = "td13">&nbsp;</td>
+			<td id = "td14">&nbsp;</td>
+		</tr>
+			<tr>
+			<td id = "td21">&nbsp;</td>
+			<td id = "td22">&nbsp;</td>
+			<td id = "td23">&nbsp;</td>
+			<td id = "td24">&nbsp;</td>
+		</tr>
+		<tr>
+			<td id = "td31">&nbsp;</td>
+			<td id = "td32">&nbsp;</td>
+			<td id = "td33">&nbsp;</td>
+			<td id = "td34">&nbsp;</td>
+		</tr>
+		<tr>
+		
+			<td id = "td41">&nbsp;</td>
+			<td id = "td42">&nbsp;</td>
+			<td id = "td43">&nbsp;</td>
+			<td id = "td44" title = "这是最后一个单元格">&nbsp;</td>
+		</tr>
+		
+	</table>
+</body>
+</html>
