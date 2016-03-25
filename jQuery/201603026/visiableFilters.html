@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>工厂函数</title>
+  <style type = "text/css">
+	div{width:50px; height:40px; margin:10px; border:3px outset #0CF; float:left;}
+	.starthidden{display:none;}
+  </style>
+	
+  <script type="text/javascript" language = "javascript" src = "C:/Users/陆饶/Desktop/js/jQuery/jquery-1.12.1.js"></script>
+  <script type = "text/javascript">
+	$(document).ready(function(){
+		$("div:visible").attr("title", "单击可切换背景颜色")
+		.toggle(function(){                             //toggle(fn,fn)每次单击时依次调用函数
+			$(this).css("background-color","#FC0");
+		},function(){
+			$(this).css("background-color", "#FFF");
+		}
+		);
+		
+		$("button").click(function(){
+			if($(this).text() == "显示隐藏的元素"){
+				$("div:hidden").show("slow");           //以缓慢速度显示隐藏的元素
+				$(this).text("恢复隐藏状态");            //当对元素执行show()方面之后，其style属性中的包含“display：block”
+			}else{
+				$("div.starthidden,div[style*="block"]").hide("slow");
+				$(this).text("显示隐藏的元素");
+			}
+		});
+	});
+  </script>
+</head>
+
+<body>
+	<div></div>
+	<div class = "starthidden"></div>
+	<div></div>
+	<div></div>
+	<div style = "display:none;"></div>
+	<br/>
+	<br/>
+	<br/>
+	<button style = "font-size:12px;margin-left:10em;">显示隐藏的元素</button>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>工厂函数</title>
+  <style type = "text/css">
+	body{text-align:center;}
+	div{width:50px; height:40px; margin:10px; border:3px outset #0CF; float:left;}
+	
+  </style>
+	
+  <script type="text/javascript" language = "javascript" src = "C:/Users/陆饶/Desktop/js/jQuery/jquery-1.12.1.js"></script>
+  <script type = "text/javascript">
+	$(document).ready(function(){
+		$("#btnok").click(function(){
+			var color = $(":radio:checked").val();         //获取选中的radio选项的值
+			
+			var hobby = new Array();
+			$(":checkbox:checked").each(function(){        //循环取出checkbox中的值并存入到hobby[]数组中
+				hobby[hobby.length] = this.value;
+			});
+			if(hobby.length == 0){
+				hobby[0] = "尚未选择";
+			}
+			
+			
+			var city = new Array();                     //循取出select中的值并放入city数组中
+			$("select option:selected").each(function(){
+				city[city.length] = this.value;
+			});
+			if(city.length == 0){
+				city[0] = "尚未选择";
+			}
+			
+			var msg = "你喜欢的颜色：" + color + ";\n" + "你喜欢的城市：" + city + ";\n" + "你的业余爱好：" + hobby + "。";
+			
+			$(":input:disabled").val(msg);
+		});
+	});
+  </script>
+</head>
+
+<body>
+	<form id = "form1" name = "form1" method = "post" action = "#">
+	<table align = "center" cellspacing = "5">
+		<tr>
+			<td>你喜欢的颜色：</td>
+			<td>
+			<input type = "radio" name = "rbColor" id = "red" value = "红色" checked = "checked"/>
+			<label for = "red">红色</label>
+			
+			<input type = "radio" name = "rbColor" id = "green" value = "绿色" checked = "checked"/>
+			<label for = "red">绿色</label>
+			
+			<input type = "radio" name = "rbColor" id = "blue" value = "蓝色" checked = "checked"/>
+			<label for = "red">蓝色</label>
+			</td>
+		</tr>
+		<tr>
+			<td>你的业余爱好：</td>
+			<td>
+				<input name = "chkHobby" type = "checkbox" id = "sprots" value = "运动"/>
+				<label for = "sprots">运动</label>
+				
+				<input name = "chkHobby" type = "checkbox" id = "music" value = "音乐"/>
+				<label for = "music">音乐</label>
+				
+				<input name = "chkHobby" type = "checkbox" id = "movie" value = "电影"/>
+				<label for = "movie">电影</label>
+				
+			</td>
+		</tr>
+		<tr>
+			<td valign = "top"><label for = "list1">你喜欢的城市：</label></td>
+			<td>
+				<select name = "list1" size = "4" multiple = "multiple" id = "list1" style = "width:80px;">
+					<option value = "北京">北京</option>
+					<option value = "上海">上海</option>
+					<option value = "昆明">昆明</option>
+					<option value = "西安">西安</option>
+					<option value = "重庆">重庆</option>
+					<option value = "天津">天津</option>
+					<option value = "广州">广州</option>
+					<option value = "杭州">杭州</option>
+				</select>
+				<input type = "button" name = "btnok" id = "btnok" value = "确定"/>
+			</td>
+		</tr>
+		<td>
+		<td>
+		<tr>
+			<td colspan = "2">
+					<textarea cols = "45" rows = "3" disabled = "disabled"></textarea>
+			</td>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>
