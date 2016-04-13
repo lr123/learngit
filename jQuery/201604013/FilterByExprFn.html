@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Filter</title>
+  <style type = "text/css">
+    
+	td{font-size:12px; font-family:"Arial Black";}
+  </style>
+	
+  <script type="text/javascript" language = "javascript" src = "C:/Users/陆饶/Desktop/js/jQuery/jquery-1.12.1.js"></script>
+  <script type = "text/javascript">
+	$(document).ready(function(){
+		$("td").each(function(index){          //遍历所有的td元素
+			this.id = "td" + index;             //为每个td的id进行赋值
+			$(this).text(index).attr("align", "center").css({"background-color":"#96C ","color":"blue"});	
+		}).filter(function(index){
+			return(index!=0 && index%3==0);
+		}).css("border", "solid red 2px");
+		$("td").filter("#td5,#td7,#td11,#td13,#td17,#td19,#td23").css("background-color", "skyblue");  //使用filter进行再度的筛选
+	});    
+  </script>
+</head>
+
+<body>
+	<table width="398" align="center" cellpadding="5" cellspacing="5" border="1">
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+</body>
+</html>
